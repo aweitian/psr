@@ -1,0 +1,7 @@
+实际最终真正要使用的是access_list（ACL），
+先添加具体的role
+然后添加resource以及resource_list
+（一般resource以及resource_list是固定的，因为这两个东西一般对应控制器和控制器的动作）
+
+再然后针对role设置access_list
+每条access_list组成有roles_name、resources_name、access_name、allowed
