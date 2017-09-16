@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<!-- saved from url=(0088)https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification -->
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		
+
+		<title>「PSR 规范」PSR-2 编码风格规范 | Laravel China 社区 - 高品质的 Laravel 和 PHP 开发者社区
+ - Powered by PHPHub</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+		<meta name="keywords" content="php,laravel,php论坛,laravel论坛,php社区,laravel社区,laravel教程,php教程,laravel视频,php开源,php新手,php7,laravel5">
+		<meta name="author" content="PHPHub">
+		<meta name="description" content="所有 PSR 规范请见：https://psr.phphub.org/ 编码风格指南
+本篇规范是 [PSR-1][] 基本代码规范的继承与扩展。
+本规范希望通过制定一系列规范化PHP代码的规则，以减少在浏览不同作者的代码时，因代码风格的不同而造成不便。
+当多名程序员在多个项目中合作时，就需要一个共同的编码规范，
+而本文中的风格规范源自于多个不同项目代码风格的共同特性，
+因此，本规范的价值在于我们都...
+">
+        <meta name="_token" content="CCQa0g6pap9a1eHnqg3rlJcLDrBB4vVK2vwNTyqo">
+
+        <link rel="stylesheet" href="./PSR-2 编码风格规范_files/styles-cb09ac39c5.css">
+
+        <link rel="shortcut icon" href="https://dn-phphub.qbox.me/favicon1.png">
+
+        <script src="./PSR-2 编码风格规范_files/push.js.下载"></script><script>
+            Config = {
+                'cdnDomain': 'https://dn-phphub.qbox.me/',
+                'user_id': 0,
+                'user_avatar': "",
+                'user_link': "",
+                'user_badge': '',
+                'user_badge_link': "",
+                'routes': {
+                    'notificationsCount' : 'https://laravel-china.org/notifications/count',
+                    'upload_image' : 'https://laravel-china.org/upload_image'
+                },
+                'token': 'CCQa0g6pap9a1eHnqg3rlJcLDrBB4vVK2vwNTyqo',
+                'environment': 'production',
+                'following_users': [],
+                'qa_category_id': '4'
+            };
+
+			var ShowCrxHint = 'no';
+        </script>
+
+	    
+		<meta http-equiv="x-pjax-version" content="/build/assets/css/styles-cb09ac39c5.css">
+
+	</head>
+	<body id="body" class="topics-show">
+
+                <div style="display: none;" 　　document.getelementbyid("typediv1").style.display="none" ;="">
+                        <img src="./PSR-2 编码风格规范_files/pQimFCe1r5.png">
+            
+        </div>
+
+		<div id="wrap">
+
+			<div role="navigation" class="navbar navbar-default topnav">
+  <div class="container">
+    <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      <a href="https://laravel-china.org/" class="navbar-brand">
+          <img src="./PSR-2 编码风格规范_files/logo4.png" alt="Laravel China">
+      </a>
+    </div>
+
+    <div id="top-navbar-collapse" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class=" active"><a href="https://laravel-china.org/topics">社区</a></li>
+        <li class=""><a href="https://laravel-china.org/categories/8">专栏</a></li>
+        <li class=""><a href="https://laravel-china.org/categories/1">招聘</a></li>
+        <li class=""><a href="https://laravel-china.org/categories/4">问答</a></li>
+        <li><a href="https://laravel-china.org/news" class="no-pjax">资讯</a></li>
+        <li class=" hidden-sm"><a href="https://laravel-china.org/wiki">Wiki</a></li>
+        <li class="nav-docs hidden-sm"><a href="http://d.laravel-china.org/" class="no-pjax" target="_blank">文档</a></li>
+        <li class="hidden-sm"><a href="https://fsdhub.com/books/laravel-essential-training-5.1" class="no-pjax" target="_blank">教程</a></li>
+      </ul>
+
+      <div class="navbar-right">
+
+                        <form method="GET" action="https://laravel-china.org/search" accept-charset="UTF-8" class="navbar-form navbar-left hidden-sm hidden-md">
+                  <div class="form-group">
+                  <input class="form-control search-input mac-style" placeholder="搜索" name="q" type="text" value="">
+          
+            </div>
+          </form>
+
+        <ul class="nav navbar-nav github-login">
+                        <a href="https://laravel-china.org/auth/login" class="btn btn-primary login-btn">
+                <i class="fa fa-user"></i>
+                登 录
+              </a>
+                  </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+			<div class="container main-container ">
+
+				
+				
+				
+<div class="col-md-9 topics-show main-col">
+  <!-- Topic Detial -->
+  <div class="topic panel panel-default">
+    <div class="infos panel-heading">
+
+      <h1 class="panel-title topic-title">「PSR 规范」PSR-2 编码风格规范</h1>
+
+      <div class="meta inline-block">
+
+  <a href="https://laravel-china.org/categories/5" class="remove-padding-left">
+    <i class="fa fa-folder text-md" aria-hidden="true"></i> 分享
+  </a>
+  ⋅
+  <a class="author" href="https://laravel-china.org/users/1">
+    Summer
+  </a>
+
+  ⋅
+  于 <abbr title="" class="timeago popover-with-html" data-content="2016-04-29 22:03:21" data-original-title="2016-04-29 22:03:21">1年前</abbr>
+  ⋅
+
+      最后回复由
+      <a href="https://laravel-china.org/users/13380">
+        dmen
+      </a>
+     于 <abbr title="" class="timeago popover-with-html" data-content="2017-03-17 16:07:29" data-original-title="2017-03-17 16:07:29">2个月前</abbr>
+    ⋅
+  
+  13738 阅读
+
+</div>
+<div class="clearfix"></div>
+    </div>
+
+    <div class="content-body entry-content panel-body ">
+
+      <div class="markdown-body" id="emojify">
+<blockquote>
+<p>所有 PSR 规范请见：<a href="https://psr.phphub.org/">https://psr.phphub.org/</a></p>
+</blockquote>
+<h2 id="编码风格指南">编码风格指南<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#编码风格指南" class="anchorific">#</a></h2>
+<p>本篇规范是 [PSR-1][] 基本代码规范的继承与扩展。</p>
+<p>本规范希望通过制定一系列规范化PHP代码的规则，以减少在浏览不同作者的代码时，因代码风格的不同而造成不便。</p>
+<p>当多名程序员在多个项目中合作时，就需要一个共同的编码规范，
+而本文中的风格规范源自于多个不同项目代码风格的共同特性，
+因此，本规范的价值在于我们都遵循这个编码风格，而不是在于它本身。</p>
+<h2 id="关于「能愿动词」的使用">关于「能愿动词」的使用<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#关于「能愿动词」的使用" class="anchorific">#</a></h2>
+<p>为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下：</p>
+<ul><li><code>必须 (MUST)</code>：绝对，严格遵循，请照做，无条件遵守；</li>
+<li><code>一定不可 (MUST NOT)</code>：禁令，严令禁止；</li>
+<li><code>应该 (SHOULD)</code> ：强烈建议这样做，但是不强求；</li>
+<li><code>不该 (SHOULD NOT)</code>：强烈不建议这样做，但是不强求；</li>
+<li><code>可以 (MAY)</code> 和 <code>可选 (OPTIONAL)</code> ：选择性高一点，在这个文档内，此词语使用较少；</li>
+</ul>
+
+<blockquote>
+<p>参见：<a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a></p>
+</blockquote>
+<h2 id="1-概览">1. 概览<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#1-概览" class="anchorific">#</a></h2>
+<ul><li>
+<p>代码 <strong>必须</strong> 遵循 <a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification">PSR-1</a> 中的编码规范 。</p>
+</li>
+<li>
+<p>代码 <strong>必须</strong> 使用4个空格符而不是「Tab 键」进行缩进。</p>
+</li>
+<li>
+<p>每行的字符数 <strong>应该</strong> 软性保持在 80 个之内，理论上 <strong>一定不可</strong> 多于 120 个，但 <strong>一定不可</strong> 有硬性限制。</p>
+</li>
+<li>
+<p>每个 <code>namespace</code> 命名空间声明语句和 <code>use</code> 声明语句块后面，<strong>必须</strong> 插入一个空白行。</p>
+</li>
+<li>
+<p>类的开始花括号（<code>{</code>） <strong>必须</strong> 写在函数声明后自成一行，结束花括号（<code>}</code>）也 <strong>必须</strong> 写在函数主体后自成一行。</p>
+</li>
+<li>
+<p>方法的开始花括号（<code>{</code>） <strong>必须</strong> 写在函数声明后自成一行，结束花括号（<code>}</code>）也 <strong>必须</strong> 写在函数主体后自成一行。</p>
+</li>
+<li>
+<p>类的属性和方法 <strong>必须</strong> 添加访问修饰符（<code>private</code>、<code>protected</code> 以及 <code>public</code>），<code>abstract</code> 以及 <code>final</code> <strong>必须</strong> 声明在访问修饰符之前，而 <code>static</code> <strong>必须</strong> 声明在访问修饰符之后。</p>
+</li>
+<li>
+<p>控制结构的关键字后 <strong>必须</strong> 要有一个空格符，而调用方法或函数时则 <strong>一定不可</strong> 有。</p>
+</li>
+<li>
+<p>控制结构的开始花括号（<code>{</code>） <strong>必须</strong> 写在声明的同一行，而结束花括号（<code>}</code>） <strong>必须</strong> 写在主体后自成一行。</p>
+</li>
+<li>控制结构的开始左括号后和结束右括号前，都 <strong>一定不可</strong> 有空格符。</li>
+</ul>
+
+<h3 id="11-例子">1.1. 例子<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#11-例子" class="anchorific">#</a></h3>
+<p>以下例子程序简单地展示了以上大部分规范：</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Vendor<span class="token punctuation">\</span>Package</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">FooInterface</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">BarClass</span> <span class="token keyword">as</span> Bar<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">OtherVendor<span class="token punctuation">\</span>OtherPackage<span class="token punctuation">\</span>BazClass</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token keyword">extends</span> <span class="token class-name">Bar</span> <span class="token keyword">implements</span> <span class="token class-name">FooInterface</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">sampleFunction</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token operator">===</span> <span class="token variable">$b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">elseif</span> <span class="token punctuation">(</span><span class="token variable">$a</span> <span class="token operator">&gt;</span> <span class="token variable">$b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$foo</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token variable">$arg1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token scope">BazClass<span class="token punctuation">::</span></span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token variable">$arg2</span><span class="token punctuation">,</span> <span class="token variable">$arg3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 方法的内容</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="2-通则">2. 通则<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#2-通则" class="anchorific">#</a></h2>
+<h3 id="21-基本编码准则">2.1 基本编码准则<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#21-基本编码准则" class="anchorific">#</a></h3>
+<p>代码 <strong>必须</strong> 符合 <a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification">PSR-1</a> 中的所有规范。</p>
+<h3 id="22-文件">2.2 文件<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#22-文件" class="anchorific">#</a></h3>
+<p>所有PHP文件 <strong>必须</strong> 使用 <code>Unix LF (linefeed)</code> 作为行的结束符。</p>
+<p>所有PHP文件 <strong>必须</strong> 以一个空白行作为结束。</p>
+<p>纯PHP代码文件 <strong>必须</strong> 省略最后的 <code>?&gt;</code> 结束标签。</p>
+<h3 id="23-行">2.3. 行<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#23-行" class="anchorific">#</a></h3>
+<p>行的长度 <strong>一定不可</strong> 有硬性的约束。</p>
+<p>软性的长度约束 <strong>必须</strong> 要限制在 120 个字符以内，若超过此长度，带代码规范检查的编辑器 <strong>必须</strong> 要发出警告，不过 <strong>一定不可</strong> 发出错误提示。</p>
+<p>每行 <strong>不该</strong> 多于80个字符，大于80字符的行 <strong>应该</strong> 折成多行。</p>
+<p>非空行后 <strong>一定不可</strong> 有多余的空格符。</p>
+<p>空行 <strong>可以</strong> 使得阅读代码更加方便以及有助于代码的分块。</p>
+<p>每行 <strong>一定不可</strong> 存在多于一条语句。</p>
+<h3 id="24-缩进">2.4. 缩进<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#24-缩进" class="anchorific">#</a></h3>
+<p>代码 <strong>必须</strong> 使用4个空格符的缩进，<strong>一定不可</strong> 用 tab键。</p>
+<blockquote>
+<p>备注：使用空格而不是「tab键缩进」的好处在于，
+避免在比较代码差异、打补丁、重阅代码以及注释时产生混淆。
+并且，使用空格缩进，让对齐变得更方便。</p>
+</blockquote>
+<h3 id="25-关键字-以及-TrueFalseNull">2.5. 关键字 以及 True/False/Null<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#25-关键字-以及-TrueFalseNull" class="anchorific">#</a></h3>
+<p>PHP所有 <a href="http://php.net/manual/en/reserved.keywords.php">关键字</a> <strong>必须</strong> 全部小写。</p>
+<p>常量 <code>true</code> 、<code>false</code> 和 <code>null</code> 也 <strong>必须</strong> 全部小写。</p>
+<h2 id="3-namespace-以及-use-声明">3. namespace 以及 use 声明<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#3-namespace-以及-use-声明" class="anchorific">#</a></h2>
+<p><code>namespace</code> 声明后 <strong>必须</strong> 插入一个空白行。</p>
+<p>所有 <code>use</code> <strong>必须</strong> 在 <code>namespace</code> 后声明。</p>
+<p>每条 <code>use</code> 声明语句 <strong>必须</strong> 只有一个 <code>use</code> 关键词。</p>
+<p><code>use</code> 声明语句块后 <strong>必须</strong> 要有一个空白行。</p>
+<p>例如：</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Vendor<span class="token punctuation">\</span>Package</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">FooClass</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">BarClass</span> <span class="token keyword">as</span> Bar<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">OtherVendor<span class="token punctuation">\</span>OtherPackage<span class="token punctuation">\</span>BazClass</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ... 更多的 PHP 代码在这里 ...</span>
+</code></pre>
+<h2 id="4-类属性和方法">4. 类、属性和方法<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#4-类属性和方法" class="anchorific">#</a></h2>
+<p>此处的「类」泛指所有的「class类」、「接口」以及「traits 可复用代码块」。</p>
+<h3 id="41-扩展与继承">4.1. 扩展与继承<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#41-扩展与继承" class="anchorific">#</a></h3>
+<p>关键词 <code>extends</code> 和 <code>implements</code> <strong>必须</strong> 写在类名称的同一行。</p>
+<p>类的开始花括号 <strong>必须</strong> 独占一行，结束花括号也 <strong>必须</strong> 在类主体后独占一行。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Vendor<span class="token punctuation">\</span>Package</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">FooClass</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">BarClass</span> <span class="token keyword">as</span> Bar<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">OtherVendor<span class="token punctuation">\</span>OtherPackage<span class="token punctuation">\</span>BazClass</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ClassName</span> <span class="token keyword">extends</span> <span class="token class-name">ParentClass</span> <span class="token keyword">implements</span> <span class="token class-name"><span class="token punctuation">\</span>ArrayAccess</span><span class="token punctuation">,</span> \<span class="token package">Countable</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 这里面是常量、属性、类方法</span>
+<span class="token punctuation">}</span></code></pre>
+<p><code>implements</code> 的继承列表也 <strong>可以</strong> 分成多行，这样的话，每个继承接口名称都 <strong>必须</strong> 分开独立成行，包括第一个。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Vendor<span class="token punctuation">\</span>Package</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">FooClass</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">BarClass</span> <span class="token keyword">as</span> Bar<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">OtherVendor<span class="token punctuation">\</span>OtherPackage<span class="token punctuation">\</span>BazClass</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ClassName</span> <span class="token keyword">extends</span> <span class="token class-name">ParentClass</span> <span class="token keyword">implements</span>
+    <span class="token class-name"><span class="token punctuation">\</span>ArrayAccess</span><span class="token punctuation">,</span>
+    \<span class="token package">Countable</span><span class="token punctuation">,</span>
+    \<span class="token package">Serializable</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 这里面是常量、属性、类方法</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="42-属性">4.2. 属性<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#42-属性" class="anchorific">#</a></h3>
+<p>每个属性都 <strong>必须</strong> 添加访问修饰符。</p>
+<p><strong>一定不可</strong> 使用关键字 <code>var</code> 声明一个属性。</p>
+<p>每条语句 <strong>一定不可</strong> 定义超过一个属性。</p>
+<p><strong>不该</strong> 使用下划线作为前缀，来区分属性是 protected 或 private。</p>
+<p>以下是属性声明的一个范例：</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Vendor<span class="token punctuation">\</span>Package</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ClassName</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="43-方法">4.3. 方法<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#43-方法" class="anchorific">#</a></h3>
+<p>所有方法都 <strong>必须</strong> 添加访问修饰符。</p>
+<p><strong>不该</strong> 使用下划线作为前缀，来区分方法是 protected 或 private。</p>
+<p>方法名称后 <strong>一定不可</strong> 有空格符，其开始花括号 <strong>必须</strong> 独占一行，结束花括号也 <strong>必须</strong> 在方法主体后单独成一行。参数左括号后和右括号前 <strong>一定不可</strong> 有空格。</p>
+<p>一个标准的方法声明可参照以下范例，留意其括号、逗号、空格以及花括号的位置。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Vendor<span class="token punctuation">\</span>Package</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ClassName</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">fooBarBaz</span><span class="token punctuation">(</span><span class="token variable">$arg1</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span><span class="token variable">$arg2</span><span class="token punctuation">,</span> <span class="token variable">$arg3</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// method body</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="44-方法的参数">4.4. 方法的参数<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#44-方法的参数" class="anchorific">#</a></h3>
+<p>参数列表中，每个逗号后面 <strong>必须</strong> 要有一个空格，而逗号前面 <strong>一定不可</strong> 有空格。</p>
+<p>有默认值的参数，<strong>必须</strong> 放到参数列表的末尾。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Vendor<span class="token punctuation">\</span>Package</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ClassName</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token variable">$arg1</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span><span class="token variable">$arg2</span><span class="token punctuation">,</span> <span class="token variable">$arg3</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// method body</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>参数列表 <strong>可以</strong> 分列成多行，这样，包括第一个参数在内的每个参数都 <strong>必须</strong> 单独成行。</p>
+<p>拆分成多行的参数列表后，结束括号以及方法开始花括号 <strong>必须</strong> 写在同一行，中间用一个空格分隔。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Vendor<span class="token punctuation">\</span>Package</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ClassName</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">aVeryLongMethodName</span><span class="token punctuation">(</span>
+        ClassTypeHint <span class="token variable">$arg1</span><span class="token punctuation">,</span>
+        <span class="token operator">&amp;</span><span class="token variable">$arg2</span><span class="token punctuation">,</span>
+        <span class="token keyword">array</span> <span class="token variable">$arg3</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 方法的内容</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="45-abstract--final--以及-static">4.5. <code>abstract</code> 、 <code>final</code> 、 以及 <code>static</code><a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#45-abstract--final--以及-static" class="anchorific">#</a></h3>
+<p>需要添加 <code>abstract</code> 或 <code>final</code> 声明时，<strong>必须</strong> 写在访问修饰符前，而 <code>static</code> 则 <strong>必须</strong> 写在其后。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Vendor<span class="token punctuation">\</span>Package</span><span class="token punctuation">;</span>
+
+<span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">ClassName</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token keyword">static</span> <span class="token variable">$foo</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">abstract</span> <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">zim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// method body</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="46-方法及函数调用">4.6. 方法及函数调用<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#46-方法及函数调用" class="anchorific">#</a></h3>
+<p>方法及函数调用时，方法名或函数名与参数左括号之间 <strong>一定不可</strong> 有空格，参数右括号前也 <strong>一定不可</strong> 有空格。每个参数前 <strong>一定不可</strong> 有空格，但其后 <strong>必须</strong> 有一个空格。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$foo</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token variable">$arg1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token scope">Foo<span class="token punctuation">::</span></span><span class="token function">bar</span><span class="token punctuation">(</span><span class="token variable">$arg2</span><span class="token punctuation">,</span> <span class="token variable">$arg3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>参数 <strong>可以</strong> 分列成多行，此时包括第一个参数在内的每个参数都 <strong>必须</strong> 单独成行。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$foo</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bar</span><span class="token punctuation">(</span>
+    <span class="token variable">$longArgument</span><span class="token punctuation">,</span>
+    <span class="token variable">$longerArgument</span><span class="token punctuation">,</span>
+    <span class="token variable">$muchLongerArgument</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2 id="5-控制结构">5. 控制结构<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#5-控制结构" class="anchorific">#</a></h2>
+<p>控制结构的基本规范如下：</p>
+<ul><li>控制结构关键词后 <strong>必须</strong> 有一个空格。</li>
+<li>左括号 <code>(</code> 后 <strong>一定不可</strong> 有空格。</li>
+<li>右括号 <code>)</code> 前也 <strong>一定不可</strong> 有空格。</li>
+<li>右括号 <code>)</code> 与开始花括号 <code>{</code> 间 <strong>必须</strong> 有一个空格。</li>
+<li>结构体主体 <strong>必须</strong> 要有一次缩进。</li>
+<li>结束花括号 <code>}</code> <strong>必须</strong> 在结构体主体后单独成行。</li>
+</ul>
+
+<p>每个结构体的主体都 <strong>必须</strong> 被包含在成对的花括号之中，
+这能让结构体更加结构话，以及减少加入新行时，出错的可能性。</p>
+<h3 id="51-if-elseif-和-else">5.1. <code>if</code> 、<code>elseif</code> 和 <code>else</code><a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#51-if-elseif-和-else" class="anchorific">#</a></h3>
+<p>标准的 <code>if</code> 结构如下代码所示，请留意「括号」、「空格」以及「花括号」的位置，
+注意 <code>else</code> 和 <code>elseif</code> 都与前面的结束花括号在同一行。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$expr1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// if body</span>
+<span class="token punctuation">}</span> <span class="token keyword">elseif</span> <span class="token punctuation">(</span><span class="token variable">$expr2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// elseif body</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// else body;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>应该</strong> 使用关键词 <code>elseif</code> 代替所有 <code>else if</code> ，以使得所有的控制关键字都像是单独的一个词。 </p>
+<h3 id="52-switch-和-case">5.2. <code>switch</code> 和 <code>case</code><a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#52-switch-和-case" class="anchorific">#</a></h3>
+<p>标准的 <code>switch</code> 结构如下代码所示，留意括号、空格以及花括号的位置。
+<code>case</code> 语句 <strong>必须</strong> 相对 <code>switch</code> 进行一次缩进，而 <code>break</code> 语句以及 <code>case</code> 内的其它语句都 <strong>必须</strong> 相对 <code>case</code> 进行一次缩进。</p>
+<p>如果存在非空的 <code>case</code> 直穿语句，主体里 <strong>必须</strong> 有类似 <code>// no break</code> 的注释。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token variable">$expr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">echo</span> <span class="token string">'First case, with a break'</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">echo</span> <span class="token string">'Second case, which falls through'</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// no break</span>
+    <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">:</span>
+    <span class="token keyword">case</span> <span class="token number">3</span><span class="token punctuation">:</span>
+    <span class="token keyword">case</span> <span class="token number">4</span><span class="token punctuation">:</span>
+        <span class="token keyword">echo</span> <span class="token string">'Third case, return instead of break'</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+        <span class="token keyword">echo</span> <span class="token string">'Default case'</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="53-while-和-do-while">5.3. <code>while</code> 和 <code>do while</code><a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#53-while-和-do-while" class="anchorific">#</a></h3>
+<p>一个规范的 <code>while</code> 语句应该如下所示，注意其「括号」、「空格」以及「花括号」的位置。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token variable">$expr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// structure body</span>
+<span class="token punctuation">}</span></code></pre>
+<p>标准的 <code>do while</code> 语句如下所示，同样的，注意其「括号」、「空格」以及「花括号」的位置。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">do</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// structure body;</span>
+<span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token variable">$expr</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="54-for">5.4. <code>for</code><a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#54-for" class="anchorific">#</a></h3>
+<p>标准的 <code>for</code> 语句如下所示，注意其「括号」、「空格」以及「花括号」的位置。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// for body</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="55-foreach">5.5. <code>foreach</code><a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#55-foreach" class="anchorific">#</a></h3>
+<p>标准的 <code>foreach</code> 语句如下所示，注意其「括号」、「空格」以及「花括号」的位置。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$iterable</span> <span class="token keyword">as</span> <span class="token variable">$key</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// foreach body</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="56-try-catch">5.6. <code>try</code>, <code>catch</code><a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#56-try-catch" class="anchorific">#</a></h3>
+<p>标准的 <code>try catch</code> 语句如下所示，注意其「括号」、「空格」以及「花括号」的位置。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// try body</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">FirstExceptionType</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// catch body</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">OtherExceptionType</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// catch body</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="6-闭包">6. 闭包<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#6-闭包" class="anchorific">#</a></h2>
+<p>闭包声明时，关键词 <code>function</code> 后以及关键词 <code>use</code> 的前后都 <strong>必须</strong> 要有一个空格。</p>
+<p>开始花括号 <strong>必须</strong> 写在声明的同一行，结束花括号 <strong>必须</strong> 紧跟主体结束的下一行。</p>
+<p>参数列表和变量列表的左括号后以及右括号前，<strong>一定不可</strong> 有空格。</p>
+<p>参数和变量列表中，逗号前 <strong>一定不可</strong> 有空格，而逗号后 <strong>必须</strong> 要有空格。</p>
+<p>闭包中有默认值的参数 <strong>必须</strong> 放到列表的后面。</p>
+<p>标准的闭包声明语句如下所示，注意其「括号」、「空格」以及「花括号」的位置。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$closureWithArgs</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$arg1</span><span class="token punctuation">,</span> <span class="token variable">$arg2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// body</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token variable">$closureWithArgsAndVars</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$arg1</span><span class="token punctuation">,</span> <span class="token variable">$arg2</span><span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span><span class="token variable">$var1</span><span class="token punctuation">,</span> <span class="token variable">$var2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// body</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>参数列表以及变量列表 <strong>可以</strong> 分成多行，这样，包括第一个在内的每个参数或变量都 <strong>必须</strong> 单独成行，而列表的右括号与闭包的开始花括号 <strong>必须</strong> 放在同一行。</p>
+<p>以下几个例子，包含了参数和变量列表被分成多行的多情况。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$longArgs_noVars</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>
+    <span class="token variable">$longArgument</span><span class="token punctuation">,</span>
+    <span class="token variable">$longerArgument</span><span class="token punctuation">,</span>
+    <span class="token variable">$muchLongerArgument</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">// body</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token variable">$noArgs_longVars</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span>
+    <span class="token variable">$longVar1</span><span class="token punctuation">,</span>
+    <span class="token variable">$longerVar2</span><span class="token punctuation">,</span>
+    <span class="token variable">$muchLongerVar3</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">// body</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token variable">$longArgs_longVars</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>
+    <span class="token variable">$longArgument</span><span class="token punctuation">,</span>
+    <span class="token variable">$longerArgument</span><span class="token punctuation">,</span>
+    <span class="token variable">$muchLongerArgument</span>
+<span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span>
+    <span class="token variable">$longVar1</span><span class="token punctuation">,</span>
+    <span class="token variable">$longerVar2</span><span class="token punctuation">,</span>
+    <span class="token variable">$muchLongerVar3</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">// body</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token variable">$longArgs_shortVars</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>
+    <span class="token variable">$longArgument</span><span class="token punctuation">,</span>
+    <span class="token variable">$longerArgument</span><span class="token punctuation">,</span>
+    <span class="token variable">$muchLongerArgument</span>
+<span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span><span class="token variable">$var1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">// body</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token variable">$shortArgs_longVars</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$arg</span><span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span>
+    <span class="token variable">$longVar1</span><span class="token punctuation">,</span>
+    <span class="token variable">$longerVar2</span><span class="token punctuation">,</span>
+    <span class="token variable">$muchLongerVar3</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">// body</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>注意，闭包被直接用作函数或方法调用的参数时，以上规则仍然适用。</p>
+<pre class="  language-php"><code class="  language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$foo</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bar</span><span class="token punctuation">(</span>
+    <span class="token variable">$arg1</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$arg2</span><span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span><span class="token variable">$var1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// body</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token variable">$arg3</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<ol><li class="">
+<h2 id="总结">总结<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#总结" class="anchorific">#</a></h2>
+<p>以上规范难免有疏忽，其中包括但不仅限于：</p>
+</li>
+</ol>
+
+<ul><li>
+<p>全局变量和常量的定义</p>
+</li>
+<li>
+<p>函数的定义</p>
+</li>
+<li>
+<p>操作符和赋值</p>
+</li>
+<li>
+<p>行内对齐</p>
+</li>
+<li>
+<p>注释和文档描述块</p>
+</li>
+<li>
+<p>类名的前缀及后缀</p>
+</li>
+<li>最佳实践</li>
+</ul>
+
+<p>本规范之后的修订与扩展将弥补以上不足。</p>
+<h2 id="附录-A-问卷调查">附录 A. 问卷调查<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#附录-A-问卷调查" class="anchorific">#</a></h2>
+<p>为了编写本规范，小组制定了调查问卷，用来统计各成员项目的共同规范。
+以下是此问卷调查的数据，在此供查阅。</p>
+<h3 id="A1-问卷数据">A.1. 问卷数据<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#A1-问卷数据" class="anchorific">#</a></h3>
+<pre><code>url,http://www.horde.org/apps/horde/docs/CODING_STANDARDS,http://pear.php.net/manual/en/standards.php,http://solarphp.com/manual/appendix-standards.style,http://framework.zend.com/manual/en/coding-standard.html,http://symfony.com/doc/2.0/contributing/code/standards.html,http://www.ppi.io/docs/coding-standards.html,https://github.com/ezsystems/ezp-next/wiki/codingstandards,http://book.cakephp.org/2.0/en/contributing/cakephp-coding-conventions.html,https://github.com/UnionOfRAD/lithium/wiki/Spec%3A-Coding,http://drupal.org/coding-standards,http://code.google.com/p/sabredav/,http://area51.phpbb.com/docs/31x/coding-guidelines.html,https://docs.google.com/a/zikula.org/document/edit?authkey=CPCU0Us&amp;hgd=1&amp;id=1fcqb93Sn-hR9c0mkN6m_tyWnmEvoswKBtSc0tKkZmJA,http://www.chisimba.com,n/a,https://github.com/Respect/project-info/blob/master/coding-standards-sample.php,n/a,Object Calisthenics for PHP,http://doc.nette.org/en/coding-standard,http://flow3.typo3.org,https://github.com/propelorm/Propel2/wiki/Coding-Standards,http://developer.joomla.org/coding-standards.html
+voting,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,no,no,no,?,yes,no,yes
+indent_type,4,4,4,4,4,tab,4,tab,tab,2,4,tab,4,4,4,4,4,4,tab,tab,4,tab
+line_length_limit_soft,75,75,75,75,no,85,120,120,80,80,80,no,100,80,80,?,?,120,80,120,no,150
+line_length_limit_hard,85,85,85,85,no,no,no,no,100,?,no,no,no,100,100,?,120,120,no,no,no,no
+class_names,studly,studly,studly,studly,studly,studly,studly,studly,studly,studly,studly,lower_under,studly,lower,studly,studly,studly,studly,?,studly,studly,studly
+class_brace_line,next,next,next,next,next,same,next,same,same,same,same,next,next,next,next,next,next,next,next,same,next,next
+constant_names,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper,upper
+true_false_null,lower,lower,lower,lower,lower,lower,lower,lower,lower,upper,lower,lower,lower,upper,lower,lower,lower,lower,lower,upper,lower,lower
+method_names,camel,camel,camel,camel,camel,camel,camel,camel,camel,camel,camel,lower_under,camel,camel,camel,camel,camel,camel,camel,camel,camel,camel
+method_brace_line,next,next,next,next,next,same,next,same,same,same,same,next,next,same,next,next,next,next,next,same,next,next
+control_brace_line,same,same,same,same,same,same,next,same,same,same,same,next,same,same,next,same,same,same,same,same,same,next
+control_space_after,yes,yes,yes,yes,yes,no,yes,yes,yes,yes,no,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes
+always_use_control_braces,yes,yes,yes,yes,yes,yes,no,yes,yes,yes,no,yes,yes,yes,yes,no,yes,yes,yes,yes,yes,yes
+else_elseif_line,same,same,same,same,same,same,next,same,same,next,same,next,same,next,next,same,same,same,same,same,same,next
+case_break_indent_from_switch,0/1,0/1,0/1,1/2,1/2,1/2,1/2,1/1,1/1,1/2,1/2,1/1,1/2,1/2,1/2,1/2,1/2,1/2,0/1,1/1,1/2,1/2
+function_space_after,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no,no
+closing_php_tag_required,no,no,no,no,no,no,no,no,yes,no,no,no,no,yes,no,no,no,no,no,yes,no,no
+line_endings,LF,LF,LF,LF,LF,LF,LF,LF,?,LF,?,LF,LF,LF,LF,?,,LF,?,LF,LF,LF
+static_or_visibility_first,static,?,static,either,either,either,visibility,visibility,visibility,either,static,either,?,visibility,?,?,either,either,visibility,visibility,static,?
+control_space_parens,no,no,no,no,no,no,yes,no,no,no,no,no,no,yes,?,no,no,no,no,no,no,no
+blank_line_after_php,no,no,no,no,yes,no,no,no,no,yes,yes,no,no,yes,?,yes,yes,no,yes,no,yes,no
+class_method_control_brace,next/next/same,next/next/same,next/next/same,next/next/same,next/next/same,same/same/same,next/next/next,same/same/same,same/same/same,same/same/same,same/same/same,next/next/next,next/next/same,next/same/same,next/next/next,next/next/same,next/next/same,next/next/same,next/next/same,same/same/same,next/next/same,next/next/next</code></pre>
+<h3 id="A2-问卷说明">A.2. 问卷说明<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#A2-问卷说明" class="anchorific">#</a></h3>
+<p><code>indent_type</code>:
+缩进类型. <code>tab</code> = "使用 tab 键一次", <code>2</code> or <code>4</code> = "空格的数量"</p>
+<p><code>line_length_limit_soft</code>:
+每行字符数量的“软”限制. <code>?</code> = 不可辩或无作答, <code>no</code> 表示无限制.</p>
+<p><code>line_length_limit_hard</code>:
+每行字符数量的“硬”限制. <code>?</code> = 不可辩或无作答, <code>no</code> 表示无限制.</p>
+<p><code>class_names</code>:
+类名称的命名. <code>lower</code> = 只允许小写字母, <code>lower_under</code> = 下滑线分隔的小写字母, <code>studly</code> = StudlyCase 的驼峰风格.</p>
+<p><code>class_brace_line</code>:
+类的开始花括号是与 class 关键字在同一行或是在其的下一行？</p>
+<p><code>constant_names</code>:
+类的常量如何命名? <code>upper</code> = 下划线分隔的大写字母.</p>
+<p><code>true_false_null</code>:
+关键字 <code>true</code>、<code>false</code> 以及 <code>null</code> 是全部小写 <code>lower</code> 还是全部大写 <code>upper</code>?</p>
+<p><code>method_names</code>:
+方法名称如何命名? <code>camel</code> = <code>camelCase</code>, <code>lower_under</code> = 下划线分隔的小写字母.</p>
+<p><code>method_brace_line</code>:
+方法的开始花括号是与方法名在同一行还是在其的下一行？</p>
+<p><code>control_brace_line</code>:
+控制结构的开始花括号是与声明在同一行还是在其的下一行？</p>
+<p><code>control_space_after</code>:
+控制结构关键词后是否有空格？</p>
+<p><code>always_use_control_braces</code>:
+控制结构体是否都要被包含在花括号内？</p>
+<p><code>else_elseif_line</code>:
+<code>else</code> 或 <code>elseif</code> 与前面的结束花括号在同一行还是在其的下一行？</p>
+<p><code>case_break_indent_from_switch</code>:
+<code>switch</code> 语句中的 <code>case</code> 和 <code>break</code> 需要相对 <code>switch</code> 缩进多少次？</p>
+<p><code>function_space_after</code>:
+函数调用语句中，函数名称与变量列表的左括号间是否有空格？</p>
+<p><code>closing_php_tag_required</code>:
+纯 PHP 代码的文件，是否需要 <code>?&gt;</code> 结束标签？</p>
+<p><code>line_endings</code>:
+选择哪种类型的行结束符？</p>
+<p><code>static_or_visibility_first</code>:
+声明一个静态方法时，<code>static</code> 是写访问修饰符前还是后？</p>
+<p><code>control_space_parens</code>:
+控制结构里，左括号后以及右括号前是否有空格？<code>yes</code> = <code>if ( $expr )</code>, <code>no</code> = <code>if ($expr)</code>.</p>
+<p><code>blank_line_after_php</code>:
+PHP 开始标签后，是否需要一个空行？</p>
+<p><code>class_method_control_brace</code>:
+开始花括号在类、方法和控制结构的位置统计。</p>
+<h3 id="A3-问卷统计结果">A.3. 问卷统计结果<a href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#A3-问卷统计结果" class="anchorific">#</a></h3>
+<pre><code>indent_type:
+    tab: 7
+    2: 1
+    4: 14
+line_length_limit_soft:
+    ?: 2
+    no: 3
+    75: 4
+    80: 6
+    85: 1
+    100: 1
+    120: 4
+    150: 1
+line_length_limit_hard:
+    ?: 2
+    no: 11
+    85: 4
+    100: 3
+    120: 2
+class_names:
+    ?: 1
+    lower: 1
+    lower_under: 1
+    studly: 19
+class_brace_line:
+    next: 16
+    same: 6
+constant_names:
+    upper: 22
+true_false_null:
+    lower: 19
+    upper: 3
+method_names:
+    camel: 21
+    lower_under: 1
+method_brace_line:
+    next: 15
+    same: 7
+control_brace_line:
+    next: 4
+    same: 18
+control_space_after:
+    no: 2
+    yes: 20
+always_use_control_braces:
+    no: 3
+    yes: 19
+else_elseif_line:
+    next: 6
+    same: 16
+case_break_indent_from_switch:
+    0/1: 4
+    1/1: 4
+    1/2: 14
+function_space_after:
+    no: 22
+closing_php_tag_required:
+    no: 19
+    yes: 3
+line_endings:
+    ?: 5
+    LF: 17
+static_or_visibility_first:
+    ?: 5
+    either: 7
+    static: 4
+    visibility: 6
+control_space_parens:
+    ?: 1
+    no: 19
+    yes: 2
+blank_line_after_php:
+    ?: 1
+    no: 13
+    yes: 8
+class_method_control_brace:
+    next/next/next: 4
+    next/next/same: 11
+    next/same/same: 1
+    same/same/same: 6</code></pre>
+<p>-- </p>
+<blockquote>
+<p>所有 PSR 规范请见：<a href="https://psr.phphub.org/">https://psr.phphub.org/</a></p>
+</blockquote>
+
+    <a class="popover-with-html" data-content="作者署名" target="_blank" style="display: block;width: 30px;color: #ccc;margin: 22px 0 8px;" href="https://laravel-china.org/topics/3422" data-original-title="" title=""><i class="fa fa-paw" aria-hidden="true"></i></a>
+    <p><a href="https://github.com/summerblue">@Summer</a> | Work at: <a href="https://yousails.com/">优帆远扬</a>，我们正在招聘 <a href="https://laravel-china.org/topics/3800">全职伙伴</a> 和 <a href="https://laravel-china.org/topics/3626">Remote 工程师</a>，欢迎加入 <img title=":bowtie:" alt=":bowtie:" class="emoji" src="./PSR-2 编码风格规范_files/bowtie.png" align="absmiddle"></img></p>
+
+</div>
+
+      <div data-lang-excellent="本帖已被设为精华帖！" data-lang-wiki="本帖已被设为社区 Wiki！" class="ribbon-container">
+              </div>
+    </div>
+    <div class="appends-container" data-lang-append="附言">
+          </div>
+        <div class="admin-operation">
+                        本帖由 <a href="https://laravel-china.org/users/1" target="_blank">Summer</a> 于 9个月前 取消沉帖
+            </div>
+        <div class="panel-footer operate">
+
+    <div class="pull-left hidden-xs">
+        <div class="social-share-cs share-component social-share"><a class="social-share-icon icon-weibo" href="http://service.weibo.com/share/share.php?url=https%3A%2F%2Flaravel-china.org%2Ftopics%2F2079%2Fpsr-specification-psr-2-coding-style-specification&amp;title=%E3%80%8CPSR%20%E8%A7%84%E8%8C%83%E3%80%8DPSR-2%20%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E8%A7%84%E8%8C%83%20%7C%20from%20LC%20%23laravel-china%23%20%20%40Summer_charlie&amp;pic=https%3A%2F%2Fdn-phphub.qbox.me%2Fuploads%2Fimages%2F201701%2F29%2F1%2FpQimFCe1r5.png&amp;appkey=" target="_blank"></a><a class="social-share-icon icon-wechat" href="javascript:"><div class="wechat-qrcode"><h4>微信扫一扫：分享</h4><div class="qrcode" title="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification"><canvas width="100" height="100" style="display: none;"></canvas><img alt="Scan me!" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAIw0lEQVR4Xu2da3vbOgyD2///o7snTdPICogXlNPLNu3TOautC0ECoOx6ry8vL28vzT9vb9dbXl9fX8b/dsPcrlPXXMYZ/9CY88/d2M2tfe5LrWce67ZuNf+8p3Qdl0i8pRvqLGAec753/P8KkNsm3L3zNfPGK3Ad6AR4Fexxzy5WLik3IFN1XoL1awAh5KtM7dCNyuDuvEn5U9W5yqqq+3YPVf+NzhW4VMGHCukGRl1P/L8BOUZgjtcpQMahSZiTrKoyn7J9/HmaEIqWEgZQa3Qmh9azAfmI6D8JiMvMlIdH65xWSKIhJMyVhV3RQ2d7v7VCNiBX+L4MEMq8xFt3jYFyJNRbVG5nxd0oHexmdQJIGtun9SEUREchFdDU7SaBoAT5lYAQes47V4Gm7lp16mfGOnPvjXY6a66qkaqLYv1eIXTRBuR+dqeaPWd7u7F9jQ+yxMhK1FOnlGRS6tRcPzTrDfU0Y+ZX93YdXAeUDcjHybUDNaXDTuDLxE0qJMmqeYJnCjJVitocVSD9vLKzVI0peJVevVdI6nKUq1l1V85Cd5xRlQh0VKPmT5OIjok6CfKwzg3I3dP8CkBGl5WU8VmeVHNU87qKPFsZnX2QiCcnFmnVH2zvBkTD9K2AKFGnBsllF/GrA31FvKu1UBBn7RvnjrP542mjuzet8tuc0vZuQI4vXcz9SAfMNiDjSw4EhBM90gEauzqKcJ3xGBiiW1qfmz+twvE6cnmVO5VPDMlLr9i6Dci16oiWLSCuNCuEKTMqYDogJ9dWVHFmfgqm09Y0yTcg4jWgWTPSxvlpgJAn7zij1cpxRxKpMCY6tFL1lahXvZCjJnJ/0fH7BuQaekoMd/qdaOh7QqlXScmHJ51plYnuoJLmddXX0YYkuMQaqqIvgNFBLB3PbEA6kS+uHZPhNCCdTn1ej8oIEsROhaSuZlwHcXRSZaQZdBoxVmBy7eH6DchdHyi7ybA4Kq8S9eHv1fF7ujBVwe2MGGwniSYFRLms6h5XBas2d6VS5/UdHlCldJMELhXoMYiKEl2QHf1XQSWAxjGJMtXP6Z4qEQ6Hi5TVKS8r51EFuXMtBddVKnXsDlQK7pcA4h5QJe1+umF3pEIBT6qNaCZJKponmYPGIFNnH1BtQO6Cn+hT4jojQCh7iNIS3qU5Ei2ZN+M648QAzHOmFJXEozrdcKce7+txz0NoU6o8HTWRQHfL/Z8HhMpJAUSZT/qgxH1Vl9xYdLQyzlldS9l9mb9bGQ8J3Pm16A3I8R1flcCnAUney6IqSCtLUZajncTVVHNX9Of6gKS/or0S7RJjRG8ubkAIhvvPTwPSeVFOZVCHm6kZTDha8bSym5Ttat0p3bjrSH8qp/g55gaEv9uS9GO3RDkNyHjaS7zrRGwWfMp25Wrm8WkMRyTpvck6qnVVbUFCcCXIG5D8ZWtnCBIQxmssIFQZri8grq44c9xc1005p0JddNrjjFrVqYTO+EoP5fE7lei4wA3IMVpfAgiJmOPnh84z+DgZ3VPRwbiOM2tOBZkquXKAY/9FyW5/xxCbGPOSGXGqApWyK+mHiLI6jWE1ljMwtAcyLhuQjwhdgk+VWv1cVSpp55wYN/Dli3KpZVTCV2VPJYzOdhINJbaXAtOhX9oDmaOE0jYgwwc9id+/BZDxcLEqIyrVRLTcEcsq7zo7mla5qtCUutzxyyp4rbdOHB11D9VWHi45QSaxJKc2JtWPApI8D3HOhXg+cUYVz6eBGe9PeLzSvq5Dcy4sscgqSaLPM21Asg89r9DfQzImZ1mO4ymLK10aF0JVRP2AopvuY4HR9lKVuT1X2hUzyQbkmhq/BpBEQxIxT5xYxfUrjmiuiu84VXB9z+w0U+c47z3SkA1I9o23FecoAUktY6oXysW4J2mJRqhepyOiiU7R/ujnqhOnqnoYU33ij4TJNWTUK6jAbEDusNm3TjqBJ2dSuS13ltUBt6tDKgloD5UujHGiKsJKde9lbUCOhPMtgHS+daLEnTpSyhjHsZhNw9d4aB3UD63oUZKw1f7KvkQBQlSx0tR1bTGJYWV7ae1OH53xUKZCmSHSQ5xjA3IN6wUoDBY8IR3H6CbGZ6Ikv45QZasSwdShuXKnaqIsVOtNKC0+3ggeXZPJqH4e/X7IBuT4aSVyY0k/EgGSipQajBxINbYqcyp3lSDdjHT9UDqWMjmd5JVa3PnWiXMqGxD/cRqqqoOGKLcwu5jxGhpcIT/PQYeBHZeVUERiP0m7KPudMaiSea7G6CWHZ/QSG5C7m1PJfktQC4jjfdKb1LGMi6MscqBWVZsmk8ruSiOe+QT1Yc/ucHEDco1A+vRRPeSixHwApPM1IHIf0jVMHxumzTkH5RKENImaPqWR6X7ddSkgn3vbgDw+fOomzVMB6fxK21xezglRN73ydK2a31FFQruzjpGFp2p0uki6tPQxflpwZ0GjZa1Ee/57JdQVNfx1gLhXSasKGDOEuJmyaaVSHCAEapJMrvJJ5Cv6quadmcS+SroB0RFwGvMUQJy/V+5DuSnKqoo7O/SWuh5Fg12hdo6xotDkBINc15f/K20UCEchtEF1bzqfo9KOIRnBH81FmuQP1yX/ShtRVyLM3VJWlUPiTvw+B69a948CcuZf+nR0RuKZGIPb+HTop2xvdW9FnckYCVBESbiuDUj/0xouUZ4CCGWzy6qERkjwSSuq+52G0D1KaygOnQqpNISq/tS7vSqQtCkVqA3I/QBTPlMnW5c4o5Vjb8oeqjT3c2rM3PF7xRDz33fWV5mcDUjwst1fCQgdkXSyJ+HqcbykH1nJ5lSgnXOivmi+92kVsgHRLzn8OCArOpAeiThdIo14yETxUZxu8JxBoT2V63WvklabSOxmKupjt0xu678DhHhe0VIVRMpYlUFJR05rpCSqqFU9BqBrqQqStc5jnOpDLhNuQOoYLAOS3Fi5Gsoi4m41dzfzxh7COZ4xgVZoN4lTmqBl3M6eZW1AjjCdBeQPmzv3XrVLCr8AAAAASUVORK5CYII=" style="display: block;"></div><div class="help"><p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p></div></div></a><a class="social-share-icon icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flaravel-china.org%2Ftopics%2F2079%2Fpsr-specification-psr-2-coding-style-specification" target="_blank"></a><a class="social-share-icon icon-twitter" href="https://twitter.com/intent/tweet?text=%E3%80%8CPSR%20%E8%A7%84%E8%8C%83%E3%80%8DPSR-2%20%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E8%A7%84%E8%8C%83%20%7C%20from%20LC%20%23laravel-china%23%20%20%40Summer_charlie&amp;url=https%3A%2F%2Flaravel-china.org%2Ftopics%2F2079%2Fpsr-specification-psr-2-coding-style-specification&amp;via=https%3A%2F%2Flaravel-china.org" target="_blank"></a><a class="social-share-icon icon-google" href="https://plus.google.com/share?url=https%3A%2F%2Flaravel-china.org%2Ftopics%2F2079%2Fpsr-specification-psr-2-coding-style-specification" target="_blank"></a><a class="social-share-icon icon-qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Flaravel-china.org%2Ftopics%2F2079%2Fpsr-specification-psr-2-coding-style-specification&amp;title=%E3%80%8CPSR%20%E8%A7%84%E8%8C%83%E3%80%8DPSR-2%20%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E8%A7%84%E8%8C%83%20%7C%20from%20LC%20%23laravel-china%23%20%20%40Summer_charlie&amp;desc=%E6%89%80%E6%9C%89%20PSR%20%E8%A7%84%E8%8C%83%E8%AF%B7%E8%A7%81%EF%BC%9Ahttps%3A%2F%2Fpsr.phphub.org%2F%20%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97%0A%E6%9C%AC%E7%AF%87%E8%A7%84%E8%8C%83%E6%98%AF%20%5BPSR-1%5D%5B%5D%20%E5%9F%BA%E6%9C%AC%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E7%9A%84%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%89%A9%E5%B1%95%E3%80%82%0A%E6%9C%AC%E8%A7%84%E8%8C%83%E5%B8%8C%E6%9C%9B%E9%80%9A%E8%BF%87%E5%88%B6%E5%AE%9A%E4%B8%80%E7%B3%BB%E5%88%97%E8%A7%84%E8%8C%83%E5%8C%96PHP%E4%BB%A3%E7%A0%81%E7%9A%84%E8%A7%84%E5%88%99%EF%BC%8C%E4%BB%A5%E5%87%8F%E5%B0%91%E5%9C%A8%E6%B5%8F%E8%A7%88%E4%B8%8D%E5%90%8C%E4%BD%9C%E8%80%85%E7%9A%84%E4%BB%A3%E7%A0%81%E6%97%B6%EF%BC%8C%E5%9B%A0%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%B8%8D%E5%90%8C%E8%80%8C%E9%80%A0%E6%88%90%E4%B8%8D%E4%BE%BF%E3%80%82%0A%E5%BD%93%E5%A4%9A%E5%90%8D%E7%A8%8B%E5%BA%8F%E5%91%98%E5%9C%A8%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%90%88%E4%BD%9C%E6%97%B6%EF%BC%8C%E5%B0%B1%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E5%85%B1%E5%90%8C%E7%9A%84%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%EF%BC%8C%0A%E8%80%8C%E6%9C%AC%E6%96%87%E4%B8%AD%E7%9A%84%E9%A3%8E%E6%A0%BC%E8%A7%84%E8%8C%83%E6%BA%90%E8%87%AA%E4%BA%8E%E5%A4%9A%E4%B8%AA%E4%B8%8D%E5%90%8C%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%9A%84%E5%85%B1%E5%90%8C%E7%89%B9%E6%80%A7%EF%BC%8C%0A%E5%9B%A0%E6%AD%A4%EF%BC%8C%E6%9C%AC%E8%A7%84%E8%8C%83%E7%9A%84%E4%BB%B7%E5%80%BC%E5%9C%A8%E4%BA%8E%E6%88%91%E4%BB%AC%E9%83%BD...%0A&amp;summary=%E6%89%80%E6%9C%89%20PSR%20%E8%A7%84%E8%8C%83%E8%AF%B7%E8%A7%81%EF%BC%9Ahttps%3A%2F%2Fpsr.phphub.org%2F%20%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97%0A%E6%9C%AC%E7%AF%87%E8%A7%84%E8%8C%83%E6%98%AF%20%5BPSR-1%5D%5B%5D%20%E5%9F%BA%E6%9C%AC%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E7%9A%84%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%89%A9%E5%B1%95%E3%80%82%0A%E6%9C%AC%E8%A7%84%E8%8C%83%E5%B8%8C%E6%9C%9B%E9%80%9A%E8%BF%87%E5%88%B6%E5%AE%9A%E4%B8%80%E7%B3%BB%E5%88%97%E8%A7%84%E8%8C%83%E5%8C%96PHP%E4%BB%A3%E7%A0%81%E7%9A%84%E8%A7%84%E5%88%99%EF%BC%8C%E4%BB%A5%E5%87%8F%E5%B0%91%E5%9C%A8%E6%B5%8F%E8%A7%88%E4%B8%8D%E5%90%8C%E4%BD%9C%E8%80%85%E7%9A%84%E4%BB%A3%E7%A0%81%E6%97%B6%EF%BC%8C%E5%9B%A0%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%B8%8D%E5%90%8C%E8%80%8C%E9%80%A0%E6%88%90%E4%B8%8D%E4%BE%BF%E3%80%82%0A%E5%BD%93%E5%A4%9A%E5%90%8D%E7%A8%8B%E5%BA%8F%E5%91%98%E5%9C%A8%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%90%88%E4%BD%9C%E6%97%B6%EF%BC%8C%E5%B0%B1%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E5%85%B1%E5%90%8C%E7%9A%84%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%EF%BC%8C%0A%E8%80%8C%E6%9C%AC%E6%96%87%E4%B8%AD%E7%9A%84%E9%A3%8E%E6%A0%BC%E8%A7%84%E8%8C%83%E6%BA%90%E8%87%AA%E4%BA%8E%E5%A4%9A%E4%B8%AA%E4%B8%8D%E5%90%8C%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%9A%84%E5%85%B1%E5%90%8C%E7%89%B9%E6%80%A7%EF%BC%8C%0A%E5%9B%A0%E6%AD%A4%EF%BC%8C%E6%9C%AC%E8%A7%84%E8%8C%83%E7%9A%84%E4%BB%B7%E5%80%BC%E5%9C%A8%E4%BA%8E%E6%88%91%E4%BB%AC%E9%83%BD...%0A&amp;site=%E3%80%8CPSR%20%E8%A7%84%E8%8C%83%E3%80%8DPSR-2%20%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E8%A7%84%E8%8C%83%20%7C%20Laravel%20China%20%E7%A4%BE%E5%8C%BA%20-%20%E9%AB%98%E5%93%81%E8%B4%A8%E7%9A%84%20Laravel%20%E5%92%8C%20PHP%20%E5%BC%80%E5%8F%91%E8%80%85%E7%A4%BE%E5%8C%BA%20-%20Powered%20by%20PHPHub" target="_blank"></a><a class="social-share-icon icon-qq" href="http://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Flaravel-china.org%2Ftopics%2F2079%2Fpsr-specification-psr-2-coding-style-specification&amp;title=%E3%80%8CPSR%20%E8%A7%84%E8%8C%83%E3%80%8DPSR-2%20%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E8%A7%84%E8%8C%83%20%7C%20from%20LC%20%23laravel-china%23%20%20%40Summer_charlie&amp;source=%E3%80%8CPSR%20%E8%A7%84%E8%8C%83%E3%80%8DPSR-2%20%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E8%A7%84%E8%8C%83%20%7C%20Laravel%20China%20%E7%A4%BE%E5%8C%BA%20-%20%E9%AB%98%E5%93%81%E8%B4%A8%E7%9A%84%20Laravel%20%E5%92%8C%20PHP%20%E5%BC%80%E5%8F%91%E8%80%85%E7%A4%BE%E5%8C%BA%20-%20Powered%20by%20PHPHub&amp;desc=%E6%89%80%E6%9C%89%20PSR%20%E8%A7%84%E8%8C%83%E8%AF%B7%E8%A7%81%EF%BC%9Ahttps%3A%2F%2Fpsr.phphub.org%2F%20%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97%0A%E6%9C%AC%E7%AF%87%E8%A7%84%E8%8C%83%E6%98%AF%20%5BPSR-1%5D%5B%5D%20%E5%9F%BA%E6%9C%AC%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E7%9A%84%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%89%A9%E5%B1%95%E3%80%82%0A%E6%9C%AC%E8%A7%84%E8%8C%83%E5%B8%8C%E6%9C%9B%E9%80%9A%E8%BF%87%E5%88%B6%E5%AE%9A%E4%B8%80%E7%B3%BB%E5%88%97%E8%A7%84%E8%8C%83%E5%8C%96PHP%E4%BB%A3%E7%A0%81%E7%9A%84%E8%A7%84%E5%88%99%EF%BC%8C%E4%BB%A5%E5%87%8F%E5%B0%91%E5%9C%A8%E6%B5%8F%E8%A7%88%E4%B8%8D%E5%90%8C%E4%BD%9C%E8%80%85%E7%9A%84%E4%BB%A3%E7%A0%81%E6%97%B6%EF%BC%8C%E5%9B%A0%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%B8%8D%E5%90%8C%E8%80%8C%E9%80%A0%E6%88%90%E4%B8%8D%E4%BE%BF%E3%80%82%0A%E5%BD%93%E5%A4%9A%E5%90%8D%E7%A8%8B%E5%BA%8F%E5%91%98%E5%9C%A8%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%90%88%E4%BD%9C%E6%97%B6%EF%BC%8C%E5%B0%B1%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E5%85%B1%E5%90%8C%E7%9A%84%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%EF%BC%8C%0A%E8%80%8C%E6%9C%AC%E6%96%87%E4%B8%AD%E7%9A%84%E9%A3%8E%E6%A0%BC%E8%A7%84%E8%8C%83%E6%BA%90%E8%87%AA%E4%BA%8E%E5%A4%9A%E4%B8%AA%E4%B8%8D%E5%90%8C%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%9A%84%E5%85%B1%E5%90%8C%E7%89%B9%E6%80%A7%EF%BC%8C%0A%E5%9B%A0%E6%AD%A4%EF%BC%8C%E6%9C%AC%E8%A7%84%E8%8C%83%E7%9A%84%E4%BB%B7%E5%80%BC%E5%9C%A8%E4%BA%8E%E6%88%91%E4%BB%AC%E9%83%BD...%0A&amp;pics=https%3A%2F%2Fdn-phphub.qbox.me%2Fuploads%2Fimages%2F201701%2F29%2F1%2FpQimFCe1r5.png" target="_blank"></a><a class="social-share-icon icon-douban" href="http://shuo.douban.com/!service/share?href=https%3A%2F%2Flaravel-china.org%2Ftopics%2F2079%2Fpsr-specification-psr-2-coding-style-specification&amp;name=%E3%80%8CPSR%20%E8%A7%84%E8%8C%83%E3%80%8DPSR-2%20%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E8%A7%84%E8%8C%83%20%7C%20from%20LC%20%23laravel-china%23%20%20%40Summer_charlie&amp;text=%E6%89%80%E6%9C%89%20PSR%20%E8%A7%84%E8%8C%83%E8%AF%B7%E8%A7%81%EF%BC%9Ahttps%3A%2F%2Fpsr.phphub.org%2F%20%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97%0A%E6%9C%AC%E7%AF%87%E8%A7%84%E8%8C%83%E6%98%AF%20%5BPSR-1%5D%5B%5D%20%E5%9F%BA%E6%9C%AC%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E7%9A%84%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%89%A9%E5%B1%95%E3%80%82%0A%E6%9C%AC%E8%A7%84%E8%8C%83%E5%B8%8C%E6%9C%9B%E9%80%9A%E8%BF%87%E5%88%B6%E5%AE%9A%E4%B8%80%E7%B3%BB%E5%88%97%E8%A7%84%E8%8C%83%E5%8C%96PHP%E4%BB%A3%E7%A0%81%E7%9A%84%E8%A7%84%E5%88%99%EF%BC%8C%E4%BB%A5%E5%87%8F%E5%B0%91%E5%9C%A8%E6%B5%8F%E8%A7%88%E4%B8%8D%E5%90%8C%E4%BD%9C%E8%80%85%E7%9A%84%E4%BB%A3%E7%A0%81%E6%97%B6%EF%BC%8C%E5%9B%A0%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%B8%8D%E5%90%8C%E8%80%8C%E9%80%A0%E6%88%90%E4%B8%8D%E4%BE%BF%E3%80%82%0A%E5%BD%93%E5%A4%9A%E5%90%8D%E7%A8%8B%E5%BA%8F%E5%91%98%E5%9C%A8%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%90%88%E4%BD%9C%E6%97%B6%EF%BC%8C%E5%B0%B1%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E5%85%B1%E5%90%8C%E7%9A%84%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%EF%BC%8C%0A%E8%80%8C%E6%9C%AC%E6%96%87%E4%B8%AD%E7%9A%84%E9%A3%8E%E6%A0%BC%E8%A7%84%E8%8C%83%E6%BA%90%E8%87%AA%E4%BA%8E%E5%A4%9A%E4%B8%AA%E4%B8%8D%E5%90%8C%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E7%9A%84%E5%85%B1%E5%90%8C%E7%89%B9%E6%80%A7%EF%BC%8C%0A%E5%9B%A0%E6%AD%A4%EF%BC%8C%E6%9C%AC%E8%A7%84%E8%8C%83%E7%9A%84%E4%BB%B7%E5%80%BC%E5%9C%A8%E4%BA%8E%E6%88%91%E4%BB%AC%E9%83%BD...%0A&amp;image=https%3A%2F%2Fdn-phphub.qbox.me%2Fuploads%2Fimages%2F201701%2F29%2F1%2FpQimFCe1r5.png&amp;starid=0&amp;aid=0&amp;style=11" target="_blank"></a></div>
+    </div>
+
+  <div class="pull-right actions">
+
+    
+    
+    
+
+      
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">添加附言</h4>
+      </div>
+
+     <form method="POST" action="https://laravel-china.org/topics/2079/append" accept-charset="UTF-8">
+         <input type="hidden" name="_token" value="CCQa0g6pap9a1eHnqg3rlJcLDrBB4vVK2vwNTyqo">
+        <div class="modal-body">
+
+          <div class="alert alert-warning">
+              附加内容, 使用此功能的话, 会给所有参加过讨论的人发送提醒.
+          </div>
+
+          <div class="form-group">
+              <textarea class="form-control" style="min-height: 20px; overflow: hidden; word-wrap: break-word; resize: horizontal; height: 284px;" placeholder="请使用 Markdown 格式书写 ;-)，代码片段黏贴时请注意使用高亮语法。" name="content" cols="50" rows="10"></textarea>
+          </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="submit" class="btn btn-primary">提交</button>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+  </div>
+
+
+  <div class="votes-container panel panel-default padding-md">
+
+    <div class="panel-body vote-box text-center">
+
+        <div class="btn-group">
+
+            <a data-ajax="post" href="javascript:void(0);" data-url="https://laravel-china.org/topics/2079/upvote" title="" data-content="点赞相当于收藏，可以在个人页面的「赞过的话题」导航里查看" id="up-vote" class="vote btn btn-primary https://dn-phphub.qbox.me/uploads/images/201608/02/1/7CpY9mK1Q4.jpg popover-with-html " data-original-title="Up Vote">
+                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                点赞
+                
+            </a>
+
+                            <div class="or"></div>
+                <button class="btn btn-warning popover-with-html" data-toggle="modal" data-target="#payment-qrcode-modal" data-content="如果觉得我的文章对您有用，请随意打赏。你的支持将鼓励我继续创作！&lt;br&gt;可以修改个人资料「支付二维码」开启打赏功能。" data-original-title="" title="">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                    打赏
+                </button>
+                    </div>
+
+        <div class="voted-users">
+
+                            <div class="user-lists">
+                                            <a href="https://laravel-china.org/users/15235" data-userid="15235">
+                            <img class="img-thumbnail avatar avatar-middle" src="./PSR-2 编码风格规范_files/15235_1492419541.jpeg" style="width:48px;height:48px;">
+                        </a>
+                                            <a href="https://laravel-china.org/users/4354" data-userid="4354">
+                            <img class="img-thumbnail avatar avatar-middle" src="./PSR-2 编码风格规范_files/4354_1470886781.jpg" style="width:48px;height:48px;">
+                        </a>
+                                            <a href="https://laravel-china.org/users/13421" data-userid="13421">
+                            <img class="img-thumbnail avatar avatar-middle" src="./PSR-2 编码风格规范_files/13421_1489816846.jpeg" style="width:48px;height:48px;">
+                        </a>
+                                            <a href="https://laravel-china.org/users/5798" data-userid="5798">
+                            <img class="img-thumbnail avatar avatar-middle" src="./PSR-2 编码风格规范_files/5798_1473651357.jpeg" style="width:48px;height:48px;">
+                        </a>
+                                            <a href="https://laravel-china.org/users/5978" data-userid="5978">
+                            <img class="img-thumbnail avatar avatar-middle" src="./PSR-2 编码风格规范_files/5978_1474460898.jpeg" style="width:48px;height:48px;">
+                        </a>
+                                            <a href="https://laravel-china.org/users/5627" data-userid="5627">
+                            <img class="img-thumbnail avatar avatar-middle" src="./PSR-2 编码风格规范_files/5627_1472631787.jpeg" style="width:48px;height:48px;">
+                        </a>
+                                            <a href="https://laravel-china.org/users/4880" data-userid="4880">
+                            <img class="img-thumbnail avatar avatar-middle" src="./PSR-2 编码风格规范_files/4880_1468312588.jpeg" style="width:48px;height:48px;">
+                        </a>
+                                            <a href="https://laravel-china.org/users/1448" data-userid="1448">
+                            <img class="img-thumbnail avatar avatar-middle" src="./PSR-2 编码风格规范_files/1448_1492680784.jpg" style="width:48px;height:48px;">
+                        </a>
+                                    </div>
+            
+            <a class="voted-template" href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification" data-userid="" style="display:none">
+                <img class="img-thumbnail avatar avatar-middle" src="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification" style="width:48px;height:48px;">
+            </a>
+        </div>
+
+    </div>
+  </div>
+
+  <!-- Reply List -->
+  <div class="replies panel panel-default list-panel replies-index" id="replies">
+
+    <div class="panel-heading">
+        <div class="total">回复数量: <b>6</b> </div>
+
+        <div class="order-links">
+            <a class="btn btn-default btn-sm active popover-with-html" data-content="按照时间排序" href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification?order_by=created_at&amp;#replies" role="button" data-original-title="" title="">时间</a>
+            <a class="btn btn-default btn-sm  popover-with-html" data-content="按照投票排序" href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification?order_by=vote_count&amp;#replies" role="button" data-original-title="" title="">投票</a>
+        </div>
+
+    </div>
+
+    <div class="panel-body">
+
+              <ul class="list-group row">
+
+  
+      
+   <li class="list-group-item media" style="margin-top: 0px; background-color: #fffce9">
+
+    <div class="avatar avatar-container pull-left">
+      <a href="https://laravel-china.org/users/4457">
+        <img class="media-object img-thumbnail avatar avatar-middle" alt="starit" src="./PSR-2 编码风格规范_files/4457_1463656805.jpeg" style="width:55px;height:55px;">
+      </a>
+          </div>
+
+    <div class="infos">
+
+      <div class="media-heading">
+
+        <a href="https://laravel-china.org/users/4457" title="starit" class="remove-padding-left author">
+            starit
+        </a>
+
+        
+        
+        <span class="operate pull-right">
+
+          
+                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne(&#39;starit&#39;);" title="回复 starit"></a>
+        </span>
+
+        <div class="meta">
+            <a name="reply9858" id="reply9858" class="anchor" href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#reply9858" aria-hidden="true">#1</a>
+
+
+            <span> ⋅  </span>
+            <abbr class="timeago popover-with-html" title="" data-content="2016-05-19 19:24:56" data-original-title="2016-05-19 19:24:56">1年前</abbr>
+
+                    </div>
+
+      </div>
+
+      <div class="media-body markdown-reply content-body">
+<p>4.6这后面漏了一句，英文文档里写着there MUST NOT be a space after the opening parenthesis，意思是左括号邮编 一定不可 有空格。</p>
+<pre><code>方法及函数调用时，方法名或函数名与参数左括号之间 一定不可 有空格，</code></pre>
+<p>以及这一句</p>
+<pre><code>但其后 必须 有一个空格。</code></pre>
+<p>应该是 参数列表里每个逗号之后 一定 有一个空格。</p>
+<p>参见英文文档http://www.php-fig.org/psr/psr-2/#4-6-method-and-function-calls</p>
+      </div>
+
+    </div>
+
+  </li>
+  
+      
+   <li class="list-group-item media" style="margin-top: 0px;">
+
+    <div class="avatar avatar-container pull-left">
+      <a href="https://laravel-china.org/users/3100">
+        <img class="media-object img-thumbnail avatar avatar-middle" alt="klgd" src="./PSR-2 编码风格规范_files/3100_1486018139.png" style="width:55px;height:55px;">
+      </a>
+          </div>
+
+    <div class="infos">
+
+      <div class="media-heading">
+
+        <a href="https://laravel-china.org/users/3100" title="klgd" class="remove-padding-left author">
+            klgd
+        </a>
+
+        
+        
+        <span class="operate pull-right">
+
+          
+                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne(&#39;klgd&#39;);" title="回复 klgd"></a>
+        </span>
+
+        <div class="meta">
+            <a name="reply17878" id="reply17878" class="anchor" href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#reply17878" aria-hidden="true">#2</a>
+
+
+            <span> ⋅  </span>
+            <abbr class="timeago popover-with-html" title="" data-content="2016-12-27 13:39:56" data-original-title="2016-12-27 13:39:56">5个月前</abbr>
+
+                    </div>
+
+      </div>
+
+      <div class="media-body markdown-reply content-body">
+<p>控制结构里的条件有多个、很长时一般用什么风格？<br>
+比如<br><code>if ($a == 'aaaa' || $b == 'bbbbb' || ($c == 0 &amp;&amp; $d == 1)) {</code></p>
+      </div>
+
+    </div>
+
+  </li>
+  
+      
+   <li class="list-group-item media" style="margin-top: 0px;">
+
+    <div class="avatar avatar-container pull-left">
+      <a href="https://laravel-china.org/users/12155">
+        <img class="media-object img-thumbnail avatar avatar-middle" alt="bigqiang" src="./PSR-2 编码风格规范_files/12155_1488270579.jpeg" style="width:55px;height:55px;">
+      </a>
+          </div>
+
+    <div class="infos">
+
+      <div class="media-heading">
+
+        <a href="https://laravel-china.org/users/12155" title="bigqiang" class="remove-padding-left author">
+            bigqiang
+        </a>
+
+        
+        
+        <span class="operate pull-right">
+
+          
+                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne(&#39;bigqiang&#39;);" title="回复 bigqiang"></a>
+        </span>
+
+        <div class="meta">
+            <a name="reply21184" id="reply21184" class="anchor" href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#reply21184" aria-hidden="true">#3</a>
+
+
+            <span> ⋅  </span>
+            <abbr class="timeago popover-with-html" title="" data-content="2017-03-07 17:35:44" data-original-title="2017-03-07 17:35:44">2个月前</abbr>
+
+                    </div>
+
+      </div>
+
+      <div class="media-body markdown-reply content-body">
+<blockquote>
+<p>类的开始花括号（{） 必须 写在函数声明后自成一行，结束花括号（}）也 必须 写在函数主体后自成一行。</p>
+</blockquote>
+<p>上面这句译文描述有误，应该改为：</p>
+<pre class="  language-php"><code class="  language-php">类的开始花括号（<span class="token punctuation">{</span>） <span class="token operator">*</span><span class="token operator">*</span>必须<span class="token operator">*</span><span class="token operator">*</span> 写在类声明后自成一行，结束花括号（<span class="token punctuation">}</span>）也 <span class="token operator">*</span><span class="token operator">*</span>必须<span class="token operator">*</span><span class="token operator">*</span> 写在类主体后自成一行。</code></pre>
+      </div>
+
+    </div>
+
+  </li>
+  
+      
+   <li class="list-group-item media" style="margin-top: 0px;">
+
+    <div class="avatar avatar-container pull-left">
+      <a href="https://laravel-china.org/users/1202">
+        <img class="media-object img-thumbnail avatar avatar-middle" alt="RryLee" src="./PSR-2 编码风格规范_files/1202_1431763756.png" style="width:55px;height:55px;">
+      </a>
+          </div>
+
+    <div class="infos">
+
+      <div class="media-heading">
+
+        <a href="https://laravel-china.org/users/1202" title="RryLee" class="remove-padding-left author">
+            RryLee
+        </a>
+
+        
+                <span class="introduction">
+            还什么都没有哦
+        </span>
+        
+        <span class="operate pull-right">
+
+          
+                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne(&#39;RryLee&#39;);" title="回复 RryLee"></a>
+        </span>
+
+        <div class="meta">
+            <a name="reply21575" id="reply21575" class="anchor" href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#reply21575" aria-hidden="true">#4</a>
+
+
+            <span> ⋅  </span>
+            <abbr class="timeago popover-with-html" title="" data-content="2017-03-15 22:15:19" data-original-title="2017-03-15 22:15:19">2个月前</abbr>
+
+                    </div>
+
+      </div>
+
+      <div class="media-body markdown-reply content-body">
+<p><a href="https://laravel-china.org/users/3100">@klgd</a> 我一般会选择用一个 function，因为一般来说，这么长的判断，已经是一个复杂的逻辑了，需要用一个方法指明具体判断了什么，而不是去读代码</p>
+      </div>
+
+    </div>
+
+  </li>
+  
+      
+   <li class="list-group-item media" style="margin-top: 0px;">
+
+    <div class="avatar avatar-container pull-left">
+      <a href="https://laravel-china.org/users/2117">
+        <img class="media-object img-thumbnail avatar avatar-middle" alt="Nixus" src="./PSR-2 编码风格规范_files/2117_1438397815.gif" style="width:55px;height:55px;">
+      </a>
+          </div>
+
+    <div class="infos">
+
+      <div class="media-heading">
+
+        <a href="https://laravel-china.org/users/2117" title="Nixus" class="remove-padding-left author">
+            Nixus
+        </a>
+
+        
+        
+        <span class="operate pull-right">
+
+          
+                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne(&#39;Nixus&#39;);" title="回复 Nixus"></a>
+        </span>
+
+        <div class="meta">
+            <a name="reply21715" id="reply21715" class="anchor" href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#reply21715" aria-hidden="true">#5</a>
+
+
+            <span> ⋅  </span>
+            <abbr class="timeago popover-with-html" title="" data-content="2017-03-17 12:01:00" data-original-title="2017-03-17 12:01:00">2个月前</abbr>
+
+                    </div>
+
+      </div>
+
+      <div class="media-body markdown-reply content-body">
+<p>怎么感觉 PSR1 与 PSR2 是一样的呢？</p>
+      </div>
+
+    </div>
+
+  </li>
+  
+                <a name="last-reply" class="anchor" href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#last-reply" aria-hidden="true"></a>
+      
+   <li class="list-group-item media" style="margin-top: 0px;">
+
+    <div class="avatar avatar-container pull-left">
+      <a href="https://laravel-china.org/users/13380">
+        <img class="media-object img-thumbnail avatar avatar-middle" alt="dmen" src="./PSR-2 编码风格规范_files/13380_1489737852.jpeg" style="width:55px;height:55px;">
+      </a>
+          </div>
+
+    <div class="infos">
+
+      <div class="media-heading">
+
+        <a href="https://laravel-china.org/users/13380" title="dmen" class="remove-padding-left author">
+            dmen
+        </a>
+
+        
+        
+        <span class="operate pull-right">
+
+          
+                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne(&#39;dmen&#39;);" title="回复 dmen"></a>
+        </span>
+
+        <div class="meta">
+            <a name="reply21761" id="reply21761" class="anchor" href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#reply21761" aria-hidden="true">#6</a>
+
+
+            <span> ⋅  </span>
+            <abbr class="timeago popover-with-html" title="" data-content="2017-03-17 16:07:29" data-original-title="2017-03-17 16:07:29">2个月前</abbr>
+
+                    </div>
+
+      </div>
+
+      <div class="media-body markdown-reply content-body">
+<p>“4.1. 扩展与继承”的原文是“4.1. Extends and Implements”，应该翻译为“4.1. 继承与实现”吧</p>
+      </div>
+
+    </div>
+
+  </li>
+  
+</ul>
+        <div id="replies-empty-block" class="empty-block hide">暂无评论~~</div>
+      
+      <!-- Pager -->
+      <div class="pull-right" style="padding-right:20px">
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Reply Box -->
+  <div class="reply-box form box-block">
+
+    
+    <form method="POST" action="https://laravel-china.org/replies" accept-charset="UTF-8" id="reply-form">
+      <input type="hidden" name="_token" value="CCQa0g6pap9a1eHnqg3rlJcLDrBB4vVK2vwNTyqo">
+      <input type="hidden" name="topic_id" value="2079">
+
+        <div id="reply_notice" class="box">
+    <ul class="helpblock list">
+      <li>请注意单词拼写，以及中英文排版，<a href="https://github.com/sparanoid/chinese-copywriting-guidelines">参考此页</a></li>
+      <li>支持 Markdown 格式, <strong>**粗体**</strong>、~~删除线~~、<code>`单行代码`</code>, 更多语法请见这里 <a href="https://github.com/riku/Markdown-Syntax-CN/blob/master/syntax.md">Markdown 语法</a></li>
+      <li>支持表情，使用方法请见 <a href="https://laravel-china.org/topics/45" target="_blank">Emoji 自动补全来咯</a>，可用的 Emoji 请见 <img title=":metal:" alt=":metal:" class="emoji" src="./PSR-2 编码风格规范_files/metal.png" align="absmiddle"></img> <img title=":point_right:" alt=":point_right:" class="emoji" src="./PSR-2 编码风格规范_files/point_right.png" align="absmiddle"></img> <a href="https://laravel-china.org/ecc/index.html" target="_blank" rel="nofollow"> Emoji 列表 </a> <img title=":star:" alt=":star:" class="emoji" src="./PSR-2 编码风格规范_files/star.png" align="absmiddle"></img> <img title=":sparkles:" alt=":sparkles:" class="emoji" src="./PSR-2 编码风格规范_files/sparkles.png" align="absmiddle"></img> </li>
+      <li>上传图片, 支持拖拽和剪切板黏贴上传, 格式限制 - jpg, png, gif</li>
+      <li>发布框支持本地存储功能，会在内容变更时保存，「提交」按钮点击时清空</li>
+    </ul>
+</div>
+
+        <div class="form-group">
+                            <textarea class="form-control" disabled="disabled" rows="5" placeholder="需要登录后才能发表评论." name="body" cols="50" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 164px;"></textarea>
+                    </div>
+
+        <div class="form-group reply-post-submit">
+            <input class="btn btn-primary disabled" id="reply-create-submit" type="submit" value="回复">
+            <span class="help-inline" title="Or Command + Enter">Ctrl+Enter</span>
+        </div>
+
+        <div class="box preview markdown-reply" id="preview-box" style="display:none;"></div>
+
+    </form>
+  </div>
+
+</div>
+
+    <div class="modal fade" id="payment-qrcode-modal" tabindex="-1" role="" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title text-center" id="exampleModalLabel">
+            <img src="./PSR-2 编码风格规范_files/1_1479342408.png" style="width:65px; height:65px;" class="img-thumbnail avatar">
+        </h4>
+      </div>
+
+        <div class="modal-body text-center">
+            <p class="text-md">
+                如果觉得我的文章对您有用，请随意打赏。你的支持将鼓励我继续创作！
+            </p>
+            <img class="payment-qrcode" src="./PSR-2 编码风格规范_files/7CpY9mK1Q4.jpg" alt="" style="width:320px;height:320px">
+            <hr>
+            <p style="color: #898989;">
+                请使用微信扫描二维码。 <a href="https://laravel-china.org/topics/2487" target="_blank" style="color: #898989;text-decoration: underline;">如何开启打赏？</a>
+            </p>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-3 side-bar">
+
+    
+
+      <div class="panel panel-default corner-radius">
+
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">作者：Summer</h3>
+      </div>
+
+    <div class="panel-body text-center topic-author-box">
+        <a href="https://laravel-china.org/users/1">
+  <img src="./PSR-2 编码风格规范_files/1_1479342408.png" style="width:80px; height:80px;margin:5px;" class="img-thumbnail avatar">
+</a>
+
+
+<div class="media-body padding-top-sm">
+        <div class="media-heading">
+
+        
+            <svg width="14" height="16" viewBox="0 0 14 14" class="Icon Icon--male" aria-hidden="true" style="height: 16px; width: 14px;fill:#9fadc7;margin-bottom: 3px"><title></title><g><path d="M3.025 10.64c-1.367-1.366-1.367-3.582 0-4.95 1.367-1.366 3.583-1.366 4.95 0 1.367 1.368 1.367 3.584 0 4.95-1.367 1.368-3.583 1.368-4.95 0zm10.122-9.368c-.002-.414-.34-.75-.753-.753L8.322 0c-.413-.002-.746.33-.744.744.002.413.338.75.75.752l2.128.313c-.95.953-1.832 1.828-1.832 1.828-2.14-1.482-5.104-1.27-7.013.64-2.147 2.147-2.147 5.63 0 7.777 2.15 2.148 5.63 2.148 7.78 0 1.908-1.91 2.12-4.873.636-7.016l1.842-1.82.303 2.116c.003.414.34.75.753.753.413.002.746-.332.744-.745l-.52-4.073z" fill-rule="evenodd"></path></g></svg>
+
+        
+                    <div class="role-label text-white">
+                <a class="label label-success role" href="https://laravel-china.org/roles/1">创始人</a>
+            </div>
+        
+        <span class="introduction">
+             A Life-long learner. 
+        </span>
+
+    </div>
+    
+<ul class="list-inline">
+
+  
+  <li><i class="fa fa-map-marker"></i> 北京</li>
+
+<br>
+    <li>
+    <a href="https://github.com/summerblue" target="_blank" class="popover-with-html" data-content="summerblue" data-original-title="" title="">
+      <i class="fa fa-github-alt"></i>
+    </a>
+  </li>
+  
+    <li>
+    <a href="http://weibo.com/u/1837553744" rel="nofollow" class="weibo" target="_blank"><i class="fa fa-weibo"></i>
+    </a>
+  </li>
+  
+        <li class="popover-with-html" data-content="&lt;img src=&#39;https://dn-phphub.qbox.me/uploads/images/201612/24/1/nw9qw7ps5g.jpeg&#39; style=&#39;width:100%&#39;&gt;" data-original-title="" title="">
+      <i class="fa fa-wechat"></i>
+    </li>
+    
+    <li>
+    <a href="https://twitter.com/Summer_Charlie" data-content="Summer_Charlie" rel="nofollow" class="twitter popover-with-html" target="_blank" data-original-title="" title=""><i class="fa fa-twitter"></i>
+    </a>
+</li>
+  
+    <li class="popover-with-html" data-content="点击查看 LinkedIn 个人资料" data-original-title="" title="">
+    <a href="https://cn.linkedin.com/in/summerblue" rel="nofollow" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i>
+    </a>
+  </li>
+  
+    <li>
+    <a href="http://yousails.com/" data-content="yousails.com/" rel="nofollow" target="_blank" class="url popover-with-html" data-original-title="" title="">
+      <i class="fa fa-globe"></i>
+    </a>
+</li>
+  
+  <li class="popover-with-html" data-content="优帆远扬" data-original-title="" title=""><i class="fa fa-users"></i></li>
+
+
+</ul>
+
+<div class="clearfix"></div>
+</div>
+
+
+            </div>
+
+  </div>
+  
+
+    <div class="panel panel-default corner-radius">
+    <div class="panel-heading text-center">
+      <h3 class="panel-title">Summer 的其他话题</h3>
+    </div>
+    <div class="panel-body">
+      <ul class="list">
+            <li>
+            <a href="https://laravel-china.org/articles/4668/why-do-you-have-to-use-homestead-to-develop-laravel-applications" title="为什么必须使用 Homestead 来开发 Laravel 应用？">
+
+                
+                 为什么必须使用 Homestead 来开发 Laravel 应用？
+            </a>
+        </li>
+            <li>
+            <a href="https://laravel-china.org/topics/4267/my-new-work-tiicle-a-programmer-to-share-programming-knowledge-and-collaboration-platform" title="新作品：Tiicle 一个程序员分享编程知识和协作的平台">
+
+                
+                 新作品：Tiicle 一个程序员分享编程知识和协作的平台
+            </a>
+        </li>
+            <li>
+            <a href="https://laravel-china.org/articles/4183/hello-world" title="Hello World">
+
+                
+                 Hello World
+            </a>
+        </li>
+    </ul>
+    </div>
+  </div>
+  
+
+    <div class="panel panel-default corner-radius">
+    <div class="panel-heading text-center">
+      <h3 class="panel-title">分类下其他话题</h3>
+    </div>
+    <div class="panel-body">
+      <ul class="list">
+            <li>
+            <a href="https://laravel-china.org/topics/4695/fifth-world-conference-on-cloud-computing-and-international-network-communications-exhibition-china-station-speech-topic-collection-activities-may-17th-deadline-such-a-chance-must-not-be-missed" title="第五届全球云计算大会暨国际网络通信展览会·中国站---演讲议题征集活动 5月17日截止！机不可失！">
+
+                
+                 第五届全球云计算大会暨国际网络通信展览会·中国站---演讲议题征集活动 5月17日截止！机不可失！
+            </a>
+        </li>
+            <li>
+            <a href="https://laravel-china.org/topics/4686/php-manual-supplement" title="PHP 手册拾遗">
+
+                
+                 PHP 手册拾遗
+            </a>
+        </li>
+            <li>
+            <a href="https://laravel-china.org/topics/4671/write-a-small-project-for-the-php-framework-to-support-regular-routing-database-query-chain" title="写了个专做小项目的 PHP 框架，支持正则路由、数据库链式查询">
+
+                
+                 写了个专做小项目的 PHP 框架，支持正则路由、数据库链式查询
+            </a>
+        </li>
+    </ul>
+    </div>
+  </div>
+  
+<div class="panel panel-default corner-radius" style="
+    text-align: center;
+    background-color: transparent;
+    border: none;
+">
+<a href="https://laravel-china.org/topics/3383" rel="nofollow" title="" style="">
+      <img src="./PSR-2 编码风格规范_files/qASrRyKNj0.jpg" style="width: 100%;border-radius: 0px;box-shadow: none;border: 1px solid #ffafaf;"></a>
+</div>
+
+
+
+
+
+  <div class="panel panel-default corner-radius">
+    <div class="panel-body text-center sidebar-sponsor-box">
+                                    <a class="sidebar-sponsor-link" href="https://www.ucloud.cn/site/active/gift.html?utm_source=laravel-china&amp;utm_medium=content_pic_pc&amp;utm_campaign=multicloud&amp;utm_content=gift&amp;ytag=laravel-china" target="_blank">
+                    <img src="./PSR-2 编码风格规范_files/AAS9hrhk8K.jpg" class="popover-with-html" data-content="服务器赞助商：UCloud" width="100%" data-original-title="" title="">
+                </a>
+                <hr>
+                            <a class="sidebar-sponsor-link" href="http://www.phpconchina.com/?o=laravel" target="_blank">
+                    <img src="./PSR-2 编码风格规范_files/pxAJKe8vOYti4aWygXb0.png" class="popover-with-html" data-content="PHPConf 2017 上海" width="100%" data-original-title="" title="">
+                </a>
+                <hr>
+                            <a class="sidebar-sponsor-link" href="https://vue.w3ctech.com/" target="_blank">
+                    <img src="./PSR-2 编码风格规范_files/fXQlFlRZWJB6INKQFust.jpeg" class="popover-with-html" data-content="VueConf 北京举行" width="100%" data-original-title="" title="">
+                </a>
+                <hr>
+                            <a class="sidebar-sponsor-link" href="https://www.upyun.com/products/ssl?utm_source=laravel&amp;utm_medium=ad&amp;utm_content=ssl-1" target="_blank">
+                    <img src="./PSR-2 编码风格规范_files/MIQbhZOi1hsUI8k68mWJ.gif" class="popover-with-html" data-content="Composer 镜像赞助商" width="100%" data-original-title="" title="">
+                </a>
+                <hr>
+                            <a class="sidebar-sponsor-link" href="http://www.bagevent.com/event/268776?bag_track=laravel-china" target="_blank">
+                    <img src="./PSR-2 编码风格规范_files/pu3PpYNeVSP5CZRpMzKn.jpg" class="popover-with-html" data-content="第三届 PHP 全球开发者大会 2017·北京" width="100%" data-original-title="" title="">
+                </a>
+                <hr>
+                      </div>
+  </div>
+
+  
+
+<div id="sticker-sticky-wrapper" class="sticky-wrapper" style="height: 444px;"><div id="sticker" style="width: 293px;">
+
+<div class="panel panel-default corner-radius sidebar-resources">
+  <div class="panel-heading text-center">
+    <h3 class="panel-title">推荐资源</h3>
+  </div>
+  <div class="panel-body">
+    <ul class="list list-group ">
+                    <li class="list-group-item ">
+                <a href="http://d.laravel-china.org/" class="no-pjax" title="Laravel 中文文档">
+                    <img class="media-object inline-block " src="./PSR-2 编码风格规范_files/ql9XtosRhTe4v8HVC3TV.jpg">
+                    Laravel 中文文档
+                </a>
+            </li>
+                    <li class="list-group-item ">
+                <a href="https://lumen.laravel-china.org/" class="no-pjax" title="Lumen 中文文档">
+                    <img class="media-object inline-block " src="./PSR-2 编码风格规范_files/bcMFkfsJZpetLgKFwWqY.jpg">
+                    Lumen 中文文档
+                </a>
+            </li>
+                    <li class="list-group-item ">
+                <a href="https://cs.laravel-china.org/" class="no-pjax" title="Laravel 速查表">
+                    <img class="media-object inline-block " src="./PSR-2 编码风格规范_files/cV55gsrH70qz6VdKr502.jpg">
+                    Laravel 速查表
+                </a>
+            </li>
+                    <li class="list-group-item ">
+                <a href="http://yousails.mikecrm.com/4Dh5uWU" class="no-pjax" title="Laravel 软件外包服务">
+                    <img class="media-object inline-block " src="./PSR-2 编码风格规范_files/v89tIQ6vjceA6g7JmrQB.png">
+                    Laravel 软件外包服务
+                </a>
+            </li>
+                    <li class="list-group-item ">
+                <a href="https://laravel-china.org/topics/3626" class="no-pjax" title="Laravel 远程工作 ">
+                    <img class="media-object inline-block " src="./PSR-2 编码风格规范_files/Xlq6s7wLxvX8FlTP4qZe.png">
+                    Laravel 远程工作 
+                </a>
+            </li>
+                    <li class="list-group-item ">
+                <a href="https://laravel-china.github.io/php-the-right-way/" class="no-pjax" title="PHP 之道 - PHPer 必读">
+                    <img class="media-object inline-block " src="./PSR-2 编码风格规范_files/vA50AYuscu2RCMowq7ee.png">
+                    PHP 之道 - PHPer 必读
+                </a>
+            </li>
+                    <li class="list-group-item ">
+                <a href="https://laravel-china.org/composer" class="no-pjax" title="Composer 中文全量镜像">
+                    <img class="media-object inline-block " src="./PSR-2 编码风格规范_files/KltcLb6leMa12dvTAxD7.png">
+                    Composer 中文全量镜像
+                </a>
+            </li>
+            </ul>
+  </div>
+</div>
+
+<div class="panel panel-default corner-radius" style="color:#a5a5a5">
+  <div class="panel-body text-center">
+      <a href="http://estgroupe.com/" style="color:#a5a5a5">
+          <img src="./PSR-2 编码风格规范_files/iq7WQc2iuW.png" style="width: 20px;margin-right: 4px;margin-top: -4px;">
+          <span style="margin-top: 7px;display: inline-block;">
+              优帆远扬 - 创造不息，交付不止
+          </span>
+      </a>
+  </div>
+</div>
+
+<div class="panel panel-default corner-radius" style="color:#a5a5a5">
+  <div class="panel-body text-center">
+      <a href="mailto:summer@yousails.com" style="color:#a5a5a5">
+          <span style="margin-top: 7px;display: inline-block;">
+              <i class="fa fa-heart" aria-hidden="true" style="color: rgba(232, 146, 136, 0.89);"></i> 建议反馈？请私信 Summer
+          </span>
+      </a>
+  </div>
+</div>
+
+</div></div>
+</div>
+<div class="clearfix"></div>
+
+
+<div class="banner-container rbs row">
+    </div>
+
+
+			</div>
+
+<footer class="footer">
+      <div class="container">
+        <div class="row footer-top">
+
+          <div class="col-sm-5 col-lg-5">
+
+              <p class="padding-top-xsm">我们是 PHP 和 Laravel 开发者社区，致力于为 PHP 和 Laravel 开发者提供一个分享创造、结识伙伴、协同互助的平台。</p>
+
+              <div class="text-md ">
+                  <a class="popover-with-html" data-content="反馈问题" target="_blank" style="padding-right:8px" href="mailto:summer@estgroupe.com" data-original-title="" title=""><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                  <a class="popover-with-html" data-content="查看源代码" target="_blank" style="padding-right:8px" href="https://github.com/summerblue/phphub5" data-original-title="" title=""><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+                  <a class="popover-with-html" data-content="关注「Laravel资讯」" target="_blank" style="padding-right:8px" href="http://weibo.com/laravelnews" data-original-title="" title=""><i class="fa fa-weibo" aria-hidden="true"></i></a>
+                  <a class="popover-with-html" data-content="扫码关注微信订阅号：「Laravel资讯」" target="_blank" style="padding-right:8px" href="https://dn-phphub.qbox.me/uploads/images/201612/15/1/MGig6IACCQ.png" data-original-title="" title=""><i class="fa fa-weixin" aria-hidden="true"></i></a>
+                  <a class="popover-with-html" data-content="下载 Chrome 消息通知插件" target="_blank" style="padding-right:8px" href="https://chrome.google.com/webstore/detail/phphub-notifier/fcopfkdgikhodlcjkjdppdfkbhmehdon" data-original-title="" title=""><i class="fa fa-chrome" aria-hidden="true"></i></a>
+              </div>
+              <br>
+              <span style="font-size:0.9em">
+                  Powered by <a href="https://github.com/summerblue/phphub5" target="_blank" style="color:inherit">PHPHub</a>
+              </span><br>
+              <span style="font-size:0.9em">
+                  Designed by <span style="color: #e27575;font-size: 14px;">❤</span> <a href="https://github.com/summerblue" target="_blank" style="color:inherit">Summer</a>
+              </span>
+          </div>
+
+          <div class="col-sm-6 col-lg-6 col-lg-offset-1">
+
+              <div class="row">
+                <div class="col-sm-4">
+                  <h4>赞助商</h4>
+                  <ul class="list-unstyled">
+                                                                              <a href="http://www.ucloud.cn/?utm_source=zanzhu&amp;utm_campaign=phphub&amp;utm_medium=display&amp;utm_content=yejiao&amp;ytag=phphubyejiao" target="_blank"><img src="./PSR-2 编码风格规范_files/bQawWl3vT5dc2lYx5JZ7.png" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="本站服务器由 UCloud 赞助" data-original-title="" title=""></a>
+                                                        <a href="http://www.qiniu.com/?utm_source=phphub" target="_blank"><img src="./PSR-2 编码风格规范_files/yGLIR0idW7zsInjsNmzr.png" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="本站 CDN 服务由七牛赞助" data-original-title="" title=""></a>
+                                                        <a href="https://www.upyun.com/" target="_blank"><img src="./PSR-2 编码风格规范_files/XPtLlZmIN1cQbLuDFEON.png" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="Composer 镜像赞助商" data-original-title="" title=""></a>
+                                                        <a href="http://www.sendcloud.net/" target="_blank"><img src="./PSR-2 编码风格规范_files/JpTCK6OKYBIrBIWdtob8.png" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="订阅邮件赞助商：SendCloud" data-original-title="" title=""></a>
+                                                                  </ul>
+                </div>
+
+                  <div class="col-sm-4">
+                    <h4>统计信息</h4>
+                    <ul class="list-unstyled">
+                        <li>社区会员: 16269 </li>
+                        <li>话题数: 4210 </li>
+                        <li>评论数: 23215 </li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-4">
+                    <h4>其他信息</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="https://laravel-china.org/sites"><i class="fa fa-globe text-md"></i> 推荐网站</a></li>
+                        <li><a href="https://laravel-china.org/about"><i class="fa fa-info-circle" aria-hidden="true"></i> 关于我们</a></li>
+                        <li><a href="https://laravel-china.org/hall_of_fames"><i class="fa fa-star" aria-hidden="true"></i> 名人堂</a></li>
+                        <li><a href="http://yousails.mikecrm.com/4Dh5uWU"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 软件外包服务</a></li>
+                    </ul>
+                  </div>
+
+                </div>
+
+          </div>
+        </div>
+        <br>
+        <br>
+      </div>
+    </footer>
+
+		</div>
+
+
+
+        <script src="./PSR-2 编码风格规范_files/scripts-7524e7da5f.js.下载"></script>
+
+	    <script type="text/javascript">
+
+    $(document).ready(function()
+    {
+        var $config = {
+            title               : '「PSR 规范」PSR-2 编码风格规范 | from LC #laravel-china#  @Summer_charlie',
+            wechatQrcodeTitle   : "微信扫一扫：分享", // 微信二维码提示文字
+            wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
+            image               : "https://dn-phphub.qbox.me/uploads/images/201701/29/1/pQimFCe1r5.png",
+            sites               : ['weibo','wechat',  'facebook', 'twitter', 'google','qzone', 'qq', 'douban'],
+        };
+
+        socialShare('.social-share-cs', $config);
+
+        Config.following_users =   [] ;
+        PHPHub.initAutocompleteAtUser();
+    });
+
+</script>
+
+        		<script>
+          ga('create', 'UA-53903425-6', 'auto');
+          ga('send', 'pageview');
+        </script>
+
+
+		<script>
+		// Baidu link submit
+		(function(){
+		    var bp = document.createElement('script');
+		    var curProtocol = window.location.protocol.split(':')[0];
+		    if (curProtocol === 'https') {
+		        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		    }
+		    else {
+		        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		    }
+		    var s = document.getElementsByTagName("script")[0];
+		    s.parentNode.insertBefore(bp, s);
+		})();
+		</script>
+        
+
+
+	
+
+<a id="scrollUp" href="https://laravel-china.org/topics/2079/psr-specification-psr-2-coding-style-specification#top" style="position: fixed; z-index: 2147483647; display: none;">Scroll to top</a><textarea tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px; padding: 0px; box-sizing: content-box; word-wrap: break-word; overflow: hidden; transition: none; height: 0px !important; min-height: 0px !important; font-family: NotoSansHans-Regular, AvenirNext-Regular, arial, &quot;Hiragino Sans GB&quot;, &quot;Microsoft Yahei&quot;, &quot;Hiragino Sans GB&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 15px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; word-spacing: 0px; text-indent: 0px; line-height: 30px; width: 836.5px;" class="autosizejs" id="autosizejs"></textarea></body></html>
